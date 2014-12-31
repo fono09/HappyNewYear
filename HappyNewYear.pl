@@ -23,7 +23,7 @@ chomp $year;
 my $target_epoch = timelocal(0,0,0,1,0,$year-1900);
 
 
-my $nt = Net::Twitter->new(
+our $nt = Net::Twitter->new(
 
 	consumer_key => $xml_ref->{consumer_key},
 	consumer_secret => $xml_ref->{consumer_secret},
@@ -56,7 +56,7 @@ my $ats = AnyEvent::Twitter::Stream->new(
 		
 		if(defined(&timer($tweet)) && $text =~ /あけ(|まして)おめ(|でとうございます)(|！)/){
 
-			$nt->update("\@$screen_name あけ$1おめ$2$3");
+			$nt->update("\@$screen_name あけ$1おめ$2$3 http://fono.jp/HNY.JPG");
 
 		}
 
